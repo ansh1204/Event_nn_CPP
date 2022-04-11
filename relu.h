@@ -10,13 +10,13 @@ private:
 
 public:
 	ReLU() {}
-	vector<vector<vector<double>>> feedForward(vector<vector<vector<double>>> &input);
+	vector<vector<vector<float>>> feedForward(vector<vector<vector<float>>> &input);
 };
 
-vector<vector<vector<double>>> ReLU::feedForward(vector<vector<vector<double>>> &input) {
-	vector<vector<vector<double>>> net_out;
+vector<vector<vector<float>>> ReLU::feedForward(vector<vector<vector<float>>> &input) {
+	vector<vector<vector<float>>> net_out;
 	for(int i = 0; i < input.size(); i++) {
-		vector<vector<double>> temp_net_out;
+		vector<vector<float>> temp_net_out;
 		temp_net_out.clear();
 		for (int y = 0; y < input[i].size(); y++) {
 			temp_net_out.push_back({});
