@@ -11,19 +11,19 @@ using namespace std;
 
 class vgg{
     private:
+        
+    public:
         Gate gate1_1, gate1_2, gate2_1, gate2_2, gate3_1, gate3_2, gate3_3, gate4_1, gate4_2, gate4_3, gate5_1, gate5_2, gate5_3;
         ConvNet conv1_1, conv1_2, conv2_1, conv2_2, conv3_1, conv3_2, conv3_3, conv4_1, conv4_2, conv4_3, conv5_1, conv5_2, conv5_3;
         MaxPool maxpool;
         ReLU relu;
         bool eventNN;
 
-    public:
         vgg(){}
         vgg(unsigned threshold, bool isEvent);
-    vector<vector<vector<float>>> feedForward(vector<vector<vector<float>>> &input);
-
-            vector<vector<vector<float>>> feedForwardStandard(vector<vector<vector<float>>> &input);
-    vector<vector<vector<float>>> feedForwardEventNN(vector<vector<vector<float>>> &input);
+        vector<vector<vector<float>>> feedForward(vector<vector<vector<float>>> &input);
+        vector<vector<vector<float>>> feedForwardStandard(vector<vector<vector<float>>> &input);
+        vector<vector<vector<float>>> feedForwardEventNN(vector<vector<vector<float>>> &input);
         vector<vector<vector<float>>> flush(vector<vector<vector<float>>> &input);
 
 };

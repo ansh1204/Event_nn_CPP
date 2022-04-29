@@ -7,8 +7,6 @@ using namespace std;
 class ConvNet {
 private:
     vector<vector<float>> feedForwardHelper(vector<vector<vector<float>>> &image, int idx);
-	vector<vector<vector<vector<float>>>> weights;
-    vector<float> bias;
 	unsigned stride;
 	unsigned kern;
     unsigned p;
@@ -16,6 +14,8 @@ private:
     unsigned outC;
     bool eventNN;
 public:
+    vector<vector<vector<vector<float>>>> weights;
+    vector<float> bias;
 	ConvNet() {}
 	ConvNet(unsigned inChannels, unsigned outChannels, unsigned k, unsigned padding, unsigned stri, bool eventNN);
     vector<vector<vector<float>>> feedForward(vector<vector<vector<float>>> &input);
