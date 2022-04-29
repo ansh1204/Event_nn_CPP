@@ -14,7 +14,6 @@ using namespace std;
 
 
 void load_weights_helper(string a, vector<vector<vector<vector<float>>>> wt) {
-    string a = "conv1_1-0";
     cnpy::NpyArray weights = cnpy::npz_load("/home/ansh/Desktop/IS/openpose_mpii.npz",a);
     float* temp = weights.data<float>();
     int n = weights.shape[0]*weights.shape[1]*weights.shape[2]*weights.shape[3];
