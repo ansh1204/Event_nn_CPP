@@ -42,9 +42,10 @@ void padHelper(vector<vector<float>> &input) {
         input[i].push_back(0.0);
         input[i].insert(input[i].begin(), 0.0);
     }
-    vector<float> temp(c + 2, 0);
+    vector<float> temp(c + 2, 0.0);
     input.insert(input.begin(), temp);
-    input.push_back(temp);
+    vector<float> temp2(c + 2, 0.0);
+    input.push_back(temp2);
 }
 
 void ConvNet::pad(vector<vector<vector<float>>> &input) {
@@ -79,17 +80,18 @@ vector<vector<vector<float>>> ConvNet::feedForward(vector<vector<vector<float>>>
             }
         }
     }
+
     pad(input);
     for (int i = 0; i < input.size(); i++) {
-        for (int j = 0; j + kern <= input[0].size(); j++) {
-            for (int k = 0; k + kern <= input[0][0].size(); k++) {
+        for (int j = 0; j < input[0].size(); j++) {
+            for (int k = 0; k < input[0][0].size(); k++) {
                 if (input[i][j][k] == 0 && eventNN) {
 
                 } else {
                     for (int oc = 0; oc < outC; oc++) {
                         for (int fx = 0; fx < kern; fx++) {
                             for (int fy = 0; fy < kern; fy++) {
-                                if (j - fx >= 0 && k - fy >= 0) {
+                                if (j - fx >= 0 && k - fy >= 0 && j - fx < net_out[oc].size() && k - fy < net_out[oc][0].size()) {
                                     net_out[oc][j - fx][k - fy] += input[i][j][k] * weights[oc][i][fx][fy];
                                 }
                             }

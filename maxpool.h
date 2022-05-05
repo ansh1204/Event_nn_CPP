@@ -35,7 +35,7 @@ vector<vector<vector<float>>> MaxPool::feedForward(vector<vector<vector<float>>>
                 for (int fY = 0; fY < kern; fY++) {
                     for (int fX = 0; fX < kern; fX++) {
                             if (y + fY < input[i].size() && x + fX < input[i][y].size()) {
-                                out = max(out,input[i][y + fY][x + fX]);
+                                out = max(out,input[i][y + fY][x  + fX]);
                             }
                     }
                 }

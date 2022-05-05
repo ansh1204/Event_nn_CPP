@@ -21,7 +21,7 @@ vector<vector<vector<float>>> ReLU::feedForward(vector<vector<vector<float>>> &i
 		for (int y = 0; y < input[i].size(); y++) {
 			temp_net_out.push_back({});
 			for (int x = 0; x < input[i][y].size(); x+=1) {
-				int val = (0 < input[i][y][x]) ? input[i][y][x] : 0;
+				float val = (0 < input[i][y][x]) ? input[i][y][x] : 0;
 				temp_net_out.back().push_back(val);
 			}
 		}
